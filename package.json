@@ -1,5 +1,5 @@
 {
-    "name": "@nahrae/react-native-halfday-calendar",
+    "name": "react-native-halfday-calendar",
     "version": "0.0.2",
     "description": "React Native - calendar for selecting halfday from there.",
     "license": "MIT",
