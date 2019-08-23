@@ -3,8 +3,18 @@
     "version": "0.0.1",
     "description": "This is a calendar for selecting halfday from there.",
     "license": "MIT",
-    "repository": "nahrae/halfday-calendar",
     "main": "index.js",
+    "author": "jinnahrae@gmail.com",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/railsjack/halfday-calendar"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
+    },
+    "dependencies": {
+      "react-native-calendars": "^1.210.0"
+    },
     "keywords": [
       "half",
       "day",
