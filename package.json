@@ -1,0 +1,18 @@
+{
+    "name": "@nahrae/react-native-halfday-calendar",
+    "version": "0.0.1",
+    "description": "This is a calendar for selecting halfday from there.",
+    "license": "MIT",
+    "repository": "nahrae/halfday-calendar",
+    "main": "index.js",
+    "keywords": [
+      "half",
+      "day",
+      "calendar",
+      "React",
+      "Native",
+      "npm",
+      "package",
+      "bamblehorse"
+    ]
+  }
