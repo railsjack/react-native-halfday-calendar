@@ -1,7 +1,7 @@
 {
     "name": "@nahrae/react-native-halfday-calendar",
     "version": "0.0.1",
-    "description": "This is a calendar for selecting halfday from there.",
+    "description": "React Native - calendar for selecting halfday from there.",
     "license": "MIT",
     "main": "index.js",
     "author": "jinnahrae@gmail.com",
@@ -11,9 +11,6 @@
     },
     "publishConfig": {
         "registry": "https://registry.npmjs.org/"
-    },
-    "dependencies": {
-      "react-native-calendars": "^1.210.0"
     },
     "keywords": [
       "half",
