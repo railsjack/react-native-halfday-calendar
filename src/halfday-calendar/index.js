@@ -108,12 +108,7 @@ class HalfdayCalendar extends Component {
         selected: true,
         color: SELECTED_COLOR,
         textColor: "black",
-        customStyles: this.getCustomStyles(
-          true,
-          true,
-          noon !== ALL_DAY,
-          noon
-        )
+        customStyles: this.getCustomStyles(true, true, noon !== ALL_DAY, noon)
       };
     } else if (this.state.endDate === null) {
       // Ex: If the user selected 21 and then 13 in the calendar
@@ -180,9 +175,7 @@ class HalfdayCalendar extends Component {
         customStyles = this.getCustomStyles(
           true,
           isEnd,
-          isEnd
-            ? startDateIsHalf !== ALL_DAY
-            : startDateIsHalf === AFTER_NOON,
+          isEnd ? startDateIsHalf !== ALL_DAY : startDateIsHalf === AFTER_NOON,
           startDateIsHalf
         );
       } else if (isEnd) {
@@ -190,7 +183,8 @@ class HalfdayCalendar extends Component {
           isStart,
           true,
           endDateIsHalf === BEFORE_NOON,
-          endDateIsHalf
+          endDateIsHalf,
+          index === 1 && isEnd
         );
       } else {
         customStyles = this.getCustomStyles(false, false, false);
@@ -212,7 +206,8 @@ class HalfdayCalendar extends Component {
     isStart,
     isEnd,
     isHalf = true,
-    noon = BEFORE_NOON
+    noon = BEFORE_NOON,
+    isWideLeft = false
   ) => {
     const isBeforeNoon = noon == BEFORE_NOON ? true : false;
     const triangleRightTop = {
@@ -232,7 +227,8 @@ class HalfdayCalendar extends Component {
         backgroundColor: SELECTED_COLOR,
         height: 32,
         width: !isStart && !isEnd ? "150%" : 32,
-        zIndex: isStart || isEnd ? 2 : 1,
+        ...(isWideLeft ? { width: "150%", left: -19 } : {}),
+        zIndex: isStart ? 3 : isEnd ? 2 : 1,
         alignItems: isStart
           ? !isHalf
             ? "center"
@@ -280,6 +276,7 @@ class HalfdayCalendar extends Component {
           : {
               position: "absolute",
               top: -5,
+              ...(isWideLeft ? {left: 45} : {}),
               lineHeight: 32,
               textAlign: "center"
             }
@@ -296,7 +293,12 @@ class HalfdayCalendar extends Component {
   confirm = () => {
     const { startDate, endDate, startDateIsHalf, endDateIsHalf } = this.state;
     this.props.onConfirm &&
-      this.props.onConfirm(startDate, endDate || startDate, startDateIsHalf, endDateIsHalf || startDateIsHalf);
+      this.props.onConfirm(
+        startDate,
+        endDate || startDate,
+        startDateIsHalf,
+        endDateIsHalf || startDateIsHalf
+      );
   };
   // =-========== Related Range Calendar : end
 
