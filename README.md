@@ -6,3 +6,6 @@
 This is a calendar for selecting halfday from there.
 
 And it's based on react-native-calendars
+
+
+![](demo.gif)
